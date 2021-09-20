@@ -1,0 +1,13 @@
+.idea
+.DS_Store
+
+apps/client-web/.next/
+
+apps/**/dist
+
+.yarn/*
+!.yarn/cache
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
