@@ -1,9 +1,10 @@
 import { memo, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { AuthLoginFormFieldsData } from 'root/features/auth-login-form/interfaces/auth-login-form.fields-data.interface';
 import { loginFx } from 'root/features/auth-login-form/model';
 import { Button } from 'root/shared/uikit/Button';
 import { FormControl } from 'root/shared/uikit/FormControl';
-import { Input } from 'root/shared/uikit/Input';
+import { Input } from 'root/shared/uikit/Input/Input';
 import { Text } from 'root/shared/uikit/Text';
 
 export const AuthLoginForm = memo(({}) => {
@@ -12,7 +13,7 @@ export const AuthLoginForm = memo(({}) => {
     register,
     formState: { errors, isSubmitting },
     setFocus
-  } = useForm({
+  } = useForm<AuthLoginFormFieldsData>({
     shouldUseNativeValidation: true
   });
 
@@ -25,7 +26,9 @@ export const AuthLoginForm = memo(({}) => {
       onSubmit={handleSubmit(loginFx)}
     >
       <div className="w-full max-w-lg">
-        <Text>Log in</Text>
+        <Text type="h1" spacingBottom>
+          Log in
+        </Text>
         <FormControl name="login" label="Login" error={errors.login && 'Invalid'}>
           <Input
             autoFocus

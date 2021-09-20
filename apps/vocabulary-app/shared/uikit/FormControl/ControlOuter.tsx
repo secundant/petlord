@@ -1,4 +1,3 @@
-import styles from './FormControl.module.css';
 import clsx from 'clsx';
 import { memo, ReactNode } from 'react';
 
@@ -8,7 +7,7 @@ export interface FormControlOuterProps {
 }
 
 export const FormControlOuter = memo(({ children, className }: FormControlOuterProps) => (
-  <div className={clsx(styles.Control, className)}>{children}</div>
+  <div className={clsx('w-auto mb-3 sm:mb-4', className)}>{children}</div>
 ));
 
 FormControlOuter.displayName = 'FormControl';

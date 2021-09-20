@@ -1,29 +1,36 @@
+import clsx from 'clsx';
 import { memo, ReactNode } from 'react';
-import { FormControlOuter } from 'root/shared/uikit/FormControl/ControlOuter';
 import { FormControlDescription } from 'root/shared/uikit/FormControl/Description';
-import { FormControlLabel } from 'root/shared/uikit/FormControl/Label';
+import { Text } from 'root/shared/uikit/Text';
 
 export interface FormControlProps {
   id?: string;
   name?: string;
   label?: ReactNode;
   error?: ReactNode;
+  className?: string;
   description?: ReactNode;
   children: NonNullable<ReactNode>;
 }
 
 export const FormControl = memo(
-  ({ name, description, error, children, label, id }: FormControlProps) => (
-    <FormControlOuter>
+  ({ name, className, description, error, children, label, id }: FormControlProps) => (
+    <div className={clsx('w-auto mb-3 sm:mb-4', className)}>
       {label && (
-        <FormControlLabel htmlFor={name} id={id ? `${id}_label` : void 0}>
+        <Text
+          htmlFor={name}
+          id={id ? `${id}_label` : void 0}
+          type="label"
+          spacingBottom
+          className="block"
+        >
           {label}
-        </FormControlLabel>
+        </Text>
       )}
       {children}
       {description && <FormControlDescription>{description}</FormControlDescription>}
       {error && <FormControlDescription invalid>{error}</FormControlDescription>}
-    </FormControlOuter>
+    </div>
   )
 );
 

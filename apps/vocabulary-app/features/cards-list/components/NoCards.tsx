@@ -6,7 +6,7 @@ import { Text } from 'root/shared/uikit/Text';
 export const NoCards = memo(() => (
   <div className="flex pt-6">
     <CardsStack>
-      <Text component="h4" className="block self-stretch text-center">
+      <Text type="h4" className="block self-stretch text-center" spacingBottom>
         Пока ничего нет :(
       </Text>
       <Button>Создать</Button>

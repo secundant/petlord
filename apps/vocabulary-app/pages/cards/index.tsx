@@ -12,7 +12,9 @@ export function getStaticProps() {
 export default function CardsPage() {
   return (
     <>
-      <Text>Ссаные карточки</Text>
+      <Text type="h1" spacingBottom>
+        Ссаные карточки
+      </Text>
       <NoCards />
     </>
   );

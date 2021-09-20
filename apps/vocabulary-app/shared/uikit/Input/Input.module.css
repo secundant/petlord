@@ -1,15 +1,3 @@
-.Input {
-  @apply w-full h-10 border-2 border-gray-200 rounded-lg outline-none items-stretch shadow-sm sm:h-11 md:h-12;
-  @apply transition-colors duration-100;
-  @apply placeholder-gray-400;
-
+.Base {
   text-indent: theme('spacing.4');
-}
-
-.Input:valid {
-  @apply hover:border-gray-300 focus:border-purple-600;
-}
-
-.Input:invalid {
-  @apply border-red-600;
 }
