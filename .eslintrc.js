@@ -32,6 +32,7 @@ module.exports = {
     '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     // Allows <T extends {}> instead of <T extends Record<string, any>>
+    '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/ban-types': [
       'error',
       {

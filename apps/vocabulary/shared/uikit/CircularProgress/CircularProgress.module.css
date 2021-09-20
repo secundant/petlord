@@ -1,0 +1,17 @@
+.CircularProgress {
+  @apply animate-spin rounded-full box-border border-opacity-25 flex-grow-0 flex-shrink-0;
+
+  border-left-color: theme('colors.white');
+}
+
+.Size_small {
+  @apply w-5 h-5 border-2;
+
+  flex-basis: theme('spacing.5');
+}
+
+.Size_default {
+  @apply w-8 h-8 border-4;
+
+  flex-basis: theme('spacing.8');
+}
