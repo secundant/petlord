@@ -3,6 +3,8 @@
   "name": "my-project",
   "version": "0.0.1",
   "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.9.4",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
@@ -25,7 +27,7 @@
   "scripts": {
     "lint": "yarn check:eslint --fix",
     "test": "jest --maxWorkers=1",
-    "cleanup": "lerna exec --stream --no-bail -- yarn cleanup",
+    "cleanup": "yarn workspaces foreach -ptA run cleanup",
     "check": "yarn check:typescript && yarn check:eslint && yarn check:doctor",
     "check:eslint": "eslint apps/**/*.{ts,tsx}",
     "check:doctor": "yarn dlx @yarnpkg/doctor",
@@ -34,8 +36,8 @@
     "postinstall": "husky install"
   },
   "engines": {
-    "node": ">14",
-    "yarn": ">3"
+    "node": ">=14",
+    "yarn": ">=3"
   },
   "workspaces": {
     "packages": [
