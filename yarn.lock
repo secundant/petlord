@@ -5,9 +5,9 @@ __metadata:
   version: 4
   cacheKey: 8
 
-"@apps/vocabulary@workspace:apps/vocabulary":
+"@apps/vocabulary-app@workspace:apps/vocabulary-app":
   version: 0.0.0-use.local
-  resolution: "@apps/vocabulary@workspace:apps/vocabulary"
+  resolution: "@apps/vocabulary-app@workspace:apps/vocabulary-app"
   dependencies:
     "@tailwindcss/typography": ^0.4.1
     "@types/jest": ^27.0.1
@@ -7801,9 +7801,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"root@link:.::locator=%40apps%2Fvocabulary%40workspace%3Aapps%2Fvocabulary":
+"root@link:.::locator=%40apps%2Fvocabulary-app%40workspace%3Aapps%2Fvocabulary-app":
   version: 0.0.0-use.local
-  resolution: "root@link:.::locator=%40apps%2Fvocabulary%40workspace%3Aapps%2Fvocabulary"
+  resolution: "root@link:.::locator=%40apps%2Fvocabulary-app%40workspace%3Aapps%2Fvocabulary-app"
   languageName: node
   linkType: soft
 

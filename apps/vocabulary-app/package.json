@@ -1,5 +1,5 @@
 {
-  "name": "@apps/vocabulary",
+  "name": "@apps/vocabulary-app",
   "packageManager": "yarn@3.0.2",
   "dependencies": {
     "@tailwindcss/typography": "^0.4.1",
