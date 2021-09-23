@@ -1,40 +1,54 @@
 import { useStore } from 'effector-react';
-import { memo, ReactNode } from 'react';
-import { languageModel } from 'root/entities/language';
+import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/router';
+import { memo, ReactNode, useCallback } from 'react';
 import { useCurrentUser } from 'root/entities/user';
 import { logoutFx } from 'root/layouts/Main/models';
 import { Autocomplete } from 'root/shared/uikit/Autocomplete';
 import { Avatar } from 'root/shared/uikit/Avatar';
 import { Button } from 'root/shared/uikit/Button';
 import { LayoutBody, LayoutContainer, LayoutHeader } from 'root/shared/uikit/Layout';
-import { Text } from 'root/shared/uikit/Text';
 
 export interface MainLayoutProps {
   children: NonNullable<ReactNode>;
 }
 
 const MainLayout = memo(({ children }: MainLayoutProps) => {
-  const language = useStore(languageModel.$currentLanguageId);
   const pending = useStore(logoutFx.pending);
   const user = useCurrentUser();
+  const router = useRouter();
+  const t = useTranslations();
+
+  const handleLanguageChange = useCallback(
+    locale => {
+      router.push(
+        {
+          pathname: router.pathname,
+          query: router.query
+        },
+        void 0,
+        {
+          locale
+        }
+      );
+    },
+    [router]
+  );
 
   return (
     <LayoutContainer>
       <LayoutHeader>
-        <Text type="h5" className="mr-4">
-          Shit app
-        </Text>
         <Autocomplete
-          placeholder="Select language"
-          value={language}
-          onChange={languageModel.currentLanguageIdChanged}
+          placeholder={t('MainLayout.selectLanguage.placeholder')}
+          value={router.locale ?? router.defaultLocale ?? null}
+          onChange={handleLanguageChange}
           options={[
             {
               value: 'ru',
               label: 'Русский'
             },
             {
-              value: 'en',
+              value: 'en-US',
               label: 'English'
             }
           ]}
@@ -44,7 +58,7 @@ const MainLayout = memo(({ children }: MainLayoutProps) => {
             <Avatar firstName={user?.firstName} lastName={user?.lastName} />
           </div>
           <Button onClick={logoutFx as () => void} disabled={pending} loading={pending}>
-            Logout
+            {t('MainLayout.logout')}
           </Button>
         </div>
       </LayoutHeader>

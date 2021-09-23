@@ -1,0 +1,14 @@
+{
+  "title": "Вход",
+  "fields": {
+    "login": {
+      "label": "Логин",
+      "placeholder": "Логин"
+    },
+    "password": {
+      "label": "Пароль",
+      "placeholder": "Пароль"
+    }
+  },
+  "submit": "Войти"
+}

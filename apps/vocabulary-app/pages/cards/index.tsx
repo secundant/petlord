@@ -1,21 +1,16 @@
+import { GetStaticPropsContext } from 'next';
 import { NoCards } from 'root/features/cards-list';
-import { Text } from 'root/shared/uikit/Text';
+import { serverSideTranslations } from 'root/shared/translations';
 
-export function getStaticProps() {
+export async function getStaticProps(ctx: GetStaticPropsContext) {
   return {
     props: {
-      layoutType: 'Main'
+      layoutType: 'Main',
+      ...(await serverSideTranslations.getStaticProps(['MainLayout'], ctx))
     }
   };
 }
 
 export default function CardsPage() {
-  return (
-    <>
-      <Text type="h1" spacingBottom>
-        Ссаные карточки
-      </Text>
-      <NoCards />
-    </>
-  );
+  return <NoCards />;
 }

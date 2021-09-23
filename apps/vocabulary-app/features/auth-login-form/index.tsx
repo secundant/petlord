@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { memo, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthLoginFormFieldsData } from 'root/features/auth-login-form/interfaces/auth-login-form.fields-data.interface';
@@ -16,6 +17,7 @@ export const AuthLoginForm = memo(({}) => {
   } = useForm<AuthLoginFormFieldsData>({
     shouldUseNativeValidation: true
   });
+  const t = useTranslations();
 
   useEffect(() => {
     setFocus('login');
@@ -27,12 +29,16 @@ export const AuthLoginForm = memo(({}) => {
     >
       <div className="w-full max-w-lg">
         <Text type="h1" spacingBottom>
-          Log in
+          {t('AuthLoginForm.title')}
         </Text>
-        <FormControl name="login" label="Login" error={errors.login && 'Invalid'}>
+        <FormControl
+          name="login"
+          label={t('AuthLoginForm.fields.login.label')}
+          error={errors.login && 'Invalid'}
+        >
           <Input
             autoFocus
-            placeholder="Login"
+            placeholder={t('AuthLoginForm.fields.login.placeholder')}
             invalid={!!errors.login}
             {...register('login', {
               required: true,
@@ -40,16 +46,20 @@ export const AuthLoginForm = memo(({}) => {
             })}
           />
         </FormControl>
-        <FormControl name="password" label="Password" error={errors.password && 'Invalid'}>
+        <FormControl
+          name="password"
+          label={t('AuthLoginForm.fields.password.label')}
+          error={errors.password && 'Invalid'}
+        >
           <Input
-            placeholder="Password"
+            placeholder={t('AuthLoginForm.fields.password.placeholder')}
             type="password"
             invalid={!!errors.password}
             {...register('password', { required: true })}
           />
         </FormControl>
         <Button disabled={isSubmitting} loading={isSubmitting} type="submit">
-          Submit
+          {t('AuthLoginForm.submit')}
         </Button>
       </div>
     </form>

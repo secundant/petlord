@@ -1,0 +1,14 @@
+{
+  "title": "Log in",
+  "fields": {
+    "login": {
+      "label": "Username",
+      "placeholder": "Username"
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "Password"
+    }
+  },
+  "submit": "Submit"
+}

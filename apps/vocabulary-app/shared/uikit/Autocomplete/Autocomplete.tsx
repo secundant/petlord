@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { FocusEvent, memo, MouseEvent, useCallback, useMemo, useState } from 'react';
+import { KeyboardArrowIcon } from 'root/shared/css-icons';
 import { Dropdown } from 'root/shared/uikit/Dropdown';
 import { useInputState, UseInputStateOptions } from 'root/shared/uikit/Input';
 import { Input } from 'root/shared/uikit/Input/Input';
@@ -133,7 +134,11 @@ export const Autocomplete = memo(
                   e.preventDefault();
                 }}
               >
-                {finallyOpen ? '-' : '+'}
+                <KeyboardArrowIcon
+                  direction="bottom"
+                  inverse={finallyOpen}
+                  className="text-purple-500"
+                />
               </div>
             }
           />
